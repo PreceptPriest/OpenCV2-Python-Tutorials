@@ -1,34 +1,34 @@
 .. _Display_Image:
 
-Getting Started with Images
+Getting Started with Images 图像处理入门
 *****************************
 
-Goals
+Goals 目标
 ======
 
 .. container:: enumeratevisibleitemswithsquare
 
-    * Here, you will learn how to read an image, how to display it and how to save it back
-    * You will learn these functions : **cv2.imread()**, **cv2.imshow()** , **cv2.imwrite()**
-    * Optionally, you will learn how to display images with Matplotlib
+    * 在此，您将了解如何读取，显示与保存图像
+    * 您将学会使用函数 : **cv2.imread()**, **cv2.imshow()** , **cv2.imwrite()**
+    * 可选： 学会如何利用Matplotlib显示图像
 
-Using OpenCV
+使用 OpenCV
 =============
 
-Read an image
+读取图像
 --------------
 
-Use the function **cv2.imread()** to read an image. The image should be in the working directory or a full path of image should be given.
+使用函数 **cv2.imread()** 读取图像。 第一个参数指定图片保存路径(全路径or当前路径)。
 
-Second argument is a flag which specifies the way image should be read.
+第二个参数为读取图像方式的标记位：
 
-* cv2.IMREAD_COLOR : Loads a color image. Any transparency of image will be neglected. It is the default flag.
-* cv2.IMREAD_GRAYSCALE : Loads image in grayscale mode
+* cv2.IMREAD_COLOR : 默认值，带色彩模式加载，透明背景层将被无视。
+* cv2.IMREAD_GRAYSCALE : 灰度图模式加载
 * cv2.IMREAD_UNCHANGED : Loads image as such including alpha channel
 
-.. note:: Instead of these three flags, you can simply pass integers 1, 0 or -1 respectively.
+.. note:: 也可以使用1,0,-1来传递该参数。
 
-See the code below:
+参见下方代码:
 ::
     
     import numpy as np
@@ -37,12 +37,12 @@ See the code below:
     # Load an color image in grayscale
     img = cv2.imread('messi5.jpg',0)
     
-.. warning:: Even if the image path is wrong, it won't throw any error, but ``print img`` will give you ``None``
+.. warning:: 即使图片路径不正确，此步也不会报出任何错误，但是在 ``print img`` 中将会返回 ``None``
 
-Display an image
+显示图像
 -----------------
 
-Use the function **cv2.imshow()** to display an image in a window. The window automatically fits to the image size.
+使用函数 **cv2.imshow()** 可以打开一个窗口以显示图像。窗口尺寸依据图片自动调整。
 
 First argument is a window name which is a string. second argument is our image. You can create as many windows as you wish, but with different window names.
 ::
